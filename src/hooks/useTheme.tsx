@@ -1,34 +1,60 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { DARK_THEME_COLOR, LIGHT_THEME_COLOR, THEME_COOKIE_NAME } from "@/lib/theme";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
-    // Check system preference on mount
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const stored = localStorage.getItem("theme");
-
-    if (stored === "dark" || (!stored && prefersDark)) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-
-    setMounted(true);
+    applyTheme(getPreferredTheme());
   }, []);
-
-  if (!mounted) return null;
 
   return <>{children}</>;
 }
 
 export function useThemeToggle() {
   const toggle = () => {
-    const isDark = document.documentElement.classList.toggle("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+    const nextTheme = document.documentElement.classList.contains("dark") ? "light" : "dark";
+    persistTheme(nextTheme);
+    applyTheme(nextTheme);
   };
 
   return toggle;
+}
+
+type Theme = "light" | "dark";
+
+function getPreferredTheme(): Theme {
+  const storedTheme = localStorage.getItem(THEME_COOKIE_NAME);
+
+  if (storedTheme === "dark" || storedTheme === "light") {
+    return storedTheme;
+  }
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function persistTheme(theme: Theme) {
+  localStorage.setItem(THEME_COOKIE_NAME, theme);
+  document.cookie = `${THEME_COOKIE_NAME}=${theme}; path=/; max-age=31536000; samesite=lax`;
+}
+
+function applyTheme(theme: Theme) {
+  const isDark = theme === "dark";
+
+  document.documentElement.classList.toggle("dark", isDark);
+  document.documentElement.style.colorScheme = theme;
+  updateMeta("theme-color", isDark ? DARK_THEME_COLOR : LIGHT_THEME_COLOR);
+  updateMeta("color-scheme", theme);
+}
+
+function updateMeta(name: string, content: string) {
+  let meta = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
+
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.name = name;
+    document.head.appendChild(meta);
+  }
+
+  meta.content = content;
 }

@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { hasLocale } from "next-intl";
@@ -9,6 +10,13 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
+import { ThemeProvider } from "@/hooks/useTheme";
+import {
+  DARK_THEME_COLOR,
+  LIGHT_THEME_COLOR,
+  THEME_COOKIE_NAME,
+  THEME_INIT_SCRIPT,
+} from "@/lib/theme";
 import "../globals.css";
 
 const geist = Geist({
@@ -26,6 +34,13 @@ const geistMono = Geist_Mono({
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: LIGHT_THEME_COLOR },
+    { media: "(prefers-color-scheme: dark)", color: DARK_THEME_COLOR },
+  ],
+};
 
 export async function generateMetadata({
   params,
@@ -71,6 +86,7 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const cookieStore = await cookies();
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -78,24 +94,28 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const storedTheme = cookieStore.get(THEME_COOKIE_NAME)?.value;
+  const htmlClassName = [
+    geist.variable,
+    geistMono.variable,
+    storedTheme === "dark" ? "dark" : null,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <html lang={locale} className={`${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
+    <html lang={locale} className={htmlClassName} suppressHydrationWarning>
       <head>
-        <Script id="theme-init" strategy="beforeInteractive">{`
-          (function() {
-            var stored = localStorage.getItem('theme');
-            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (stored === 'dark' || (!stored && prefersDark)) {
-              document.documentElement.classList.add('dark');
-            }
-          })();
-        `}</Script>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {THEME_INIT_SCRIPT}
+        </Script>
       </head>
       <body className="antialiased">
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>
