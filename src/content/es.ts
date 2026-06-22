@@ -41,22 +41,23 @@ const content: SiteContent = {
       description:
         "Reemplazo moderno del sistema admin legacy. Arquitectura serverless con ~25 funciones Lambda, SPA en React e infraestructura con CDK.",
       achievements: [
-        "Implementé features full-stack en frontend React y backend Node.js Lambda con CDK",
-        "Construí subsistema de detección de issues IoT (temperatura, batería, anomalías de riego)",
-        "Reemplacé vistas admin legacy lentas y poco confiables con una interfaz rápida y unificada",
+        "Implementé features full-stack (React + Node.js Lambda + CDK): gestión de nodos, firmware, configuración y recovery de datos",
+        "Construí sistema de internacionalización completo (en/es) y endpoints de sensores con caché proactivo",
+        "Desarrollé vistas con tablas avanzadas: filtros persistentes, selección masiva, paginación y acciones batch sobre dispositivos",
       ],
     },
     {
       id: "wiseconn-puma",
       company: "Wiseconn",
       role: "Contributor — PumaServer (Módulo Protocolo IoT)",
-      startDate: "2025-08",
-      periodLabel: "Ago 2025 – Presente",
+      startDate: "2025-02",
+      periodLabel: "Feb 2025 – Presente",
       description:
-        "Módulo core de comunicación IoT manejando interacciones a nivel de protocolo con 20.000+ dispositivos de campo.",
+        "Módulo core de comunicación IoT que maneja protocolo de bajo nivel con dispositivos de campo a gran escala.",
       achievements: [
-        "Trabajé en protocolo IoT de bajo nivel para comunicación con dispositivos (detección de radio, sync, caudalímetros)",
-        "Integración con DynamoDB para gestión de estado de dispositivos en tiempo real",
+        "Implementé sincronización proactiva de programas de riego (R19) y sistema de detección de tramas duplicadas",
+        "Desarrollé trazabilidad y persistencia de datos de caudalímetros con bloqueo inteligente de fertirriego",
+        "Construí recovery de datos para nodos V1 y detección de radios 900HP para redes australianas",
       ],
     },
     {
@@ -66,10 +67,11 @@ const content: SiteContent = {
       startDate: "2017",
       periodLabel: "2017 – Presente",
       description:
-        "App de instalación de dispositivos IoT en terreno usada por 800+ técnicos. Reemplazó configuración manual serial/radio con flujos guiados móviles.",
+        "App web de instalación de dispositivos IoT en terreno utilizada por técnicos a nivel internacional. Flujos guiados para configuración y diagnóstico de dispositivos.",
       achievements: [
-        "Lideré el desarrollo y mantenimiento por 8+ años como único desarrollador",
-        "Diseñé flujos paso a paso que guían a los técnicos a través de procedimientos complejos de instalación IoT",
+        "Lideré el desarrollo y mantenimiento por 8+ años como único desarrollador (191 commits)",
+        "Implementé traceroute LoRa completo con visualización en mapa, cadena de ruta y diagnóstico de señal",
+        "Diseñé sistema de monitoreo de estado en tiempo real con cache y manejo de redes cercanas",
       ],
     },
     {
@@ -80,11 +82,11 @@ const content: SiteContent = {
       endDate: "2022",
       periodLabel: "2016 – 2022",
       description:
-        "Contribuí a plataforma IoT de agricultura gestionando 300K+ hectáreas en 7 países con 3.000+ usuarios activos y 20.000 dispositivos de campo.",
+        "Contribuí a plataforma IoT de agricultura gestionando riego automatizado a gran escala en múltiples países.",
       achievements: [
-        "Contribuí a la plataforma legacy Java (Struts2, EJB, Hibernate) y participé en la migración a Next.js",
-        "Implementé vista de clima y sistema automatizado de descarga de archivos con Puppeteer",
-        "Construí pipelines de migración de datos y automatización con Lambda y Excel",
+        "Desarrollé módulo de programas de riego: paginación, filtros, clonación de templates y edición de duración",
+        "Implementé vista de clima con gráficos interactivos (viento, grados día, horas frío) y generación de reportes PDF con Puppeteer",
+        "Contribuí a la plataforma legacy Java (Struts2, EJB, Hibernate) y participé en la migración del frontend a Next.js",
       ],
     },
   ],

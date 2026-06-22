@@ -41,22 +41,23 @@ const content: SiteContent = {
       description:
         "Modern replacement for legacy admin system. Serverless architecture with ~25 Lambda functions, React SPA, and CDK infrastructure.",
       achievements: [
-        "Implemented full-stack features across React frontend and Node.js Lambda backend with CDK",
-        "Built IoT issue detection subsystem (temperature, battery, irrigation anomaly monitoring)",
-        "Replaced slow, unreliable legacy admin views with a fast, unified interface",
+        "Implemented full-stack features (React + Node.js Lambda + CDK): node management, firmware updates, configuration, and data recovery",
+        "Built complete i18n system (en/es) and sensor type endpoints with proactive caching",
+        "Developed advanced table views with persistent filters, bulk selection, pagination, and batch device actions",
       ],
     },
     {
       id: "wiseconn-puma",
       company: "Wiseconn",
       role: "Contributor — PumaServer (IoT Protocol Module)",
-      startDate: "2025-08",
-      periodLabel: "Aug 2025 – Present",
+      startDate: "2025-02",
+      periodLabel: "Feb 2025 – Present",
       description:
-        "Core IoT communication module handling protocol-level interactions with 20,000+ field devices.",
+        "Core IoT communication module handling low-level protocol with field devices at scale.",
       achievements: [
-        "Worked on low-level IoT protocol for device communication (radio detection, sync, flow meters)",
-        "Integrated with DynamoDB for real-time device state management",
+        "Implemented proactive irrigation program sync (R19) and duplicate frame detection system",
+        "Developed flow meter data traceability and persistence with intelligent fertigation blocking",
+        "Built V1 node data recovery and 900HP radio detection for Australian networks",
       ],
     },
     {
@@ -66,10 +67,11 @@ const content: SiteContent = {
       startDate: "2017",
       periodLabel: "2017 – Present",
       description:
-        "Field installation app for IoT devices used by 800+ technicians. Replaced manual serial/radio configuration with guided mobile workflows.",
+        "Field installation web app for IoT devices used by technicians internationally. Guided workflows for device configuration and diagnostics.",
       achievements: [
-        "Led development and maintenance for 8+ years as sole developer",
-        "Designed step-by-step workflows that guide technicians through complex IoT device installation procedures",
+        "Led development and maintenance for 8+ years as sole developer (191 commits)",
+        "Implemented full LoRa traceroute with map visualization, route chain display, and signal diagnostics",
+        "Designed real-time status monitoring system with caching and nearby network management",
       ],
     },
     {
@@ -80,11 +82,11 @@ const content: SiteContent = {
       endDate: "2022",
       periodLabel: "2016 – 2022",
       description:
-        "Contributed to IoT agriculture platform managing 300K+ hectares across 7 countries with 3,000+ active users and 20,000 field devices.",
+        "Contributed to IoT agriculture platform managing automated irrigation at scale across multiple countries.",
       achievements: [
-        "Contributed to legacy Java platform (Struts2, EJB, Hibernate) and participated in migration to Next.js",
-        "Implemented weather view and automated file download system with Puppeteer",
-        "Built data migration pipelines and Excel automation with Lambda",
+        "Developed irrigation programs module: pagination, filters, template cloning, and duration editing",
+        "Implemented weather view with interactive charts (wind, degree days, chill hours) and PDF report generation with Puppeteer",
+        "Contributed to legacy Java platform (Struts2, EJB, Hibernate) and participated in frontend migration to Next.js",
       ],
     },
   ],
