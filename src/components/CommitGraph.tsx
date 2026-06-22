@@ -33,16 +33,13 @@ const COLORS = [
 ];
 
 export function CommitGraph() {
-  const [data, setData] = useState<number[][] | null>(null);
+  const [data] = useState<number[][]>(() => generateCommitData());
   const [animated, setAnimated] = useState(false);
 
   useEffect(() => {
-    setData(generateCommitData());
     const timer = setTimeout(() => setAnimated(true), 100);
     return () => clearTimeout(timer);
   }, []);
-
-  if (!data) return null;
 
   return (
     <div className="flex flex-col overflow-hidden rounded-lg border border-border bg-[#0d1117] shadow-xl">

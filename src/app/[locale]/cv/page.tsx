@@ -1,6 +1,7 @@
 "use client";
 
 import type { SiteContent } from "@/content/types";
+import Image from "next/image";
 import { use, useEffect, useState } from "react";
 
 export default function CVPage({
@@ -25,9 +26,11 @@ export default function CVPage({
           {/* Photo */}
           <div className="mb-4 flex justify-center">
             <div className="rounded-full border-[3px] border-white/30 p-[2px]">
-              <img
+              <Image
                 src="/diego-bustamante.png"
                 alt={content.profile.name}
+                width={96}
+                height={96}
                 className="h-24 w-24 rounded-full object-cover object-[center_5px]"
               />
             </div>
