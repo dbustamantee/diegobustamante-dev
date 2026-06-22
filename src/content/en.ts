@@ -12,9 +12,9 @@ const content: SiteContent = {
     },
     stats: [
       { value: "10+", label: "Years in Industry" },
-      { value: "3,000+", label: "Commits (Lead Project)" },
-      { value: "9,000+", label: "IoT Farms Configured" },
-      { value: "28", label: "Countries Served" },
+      { value: "1,700+", label: "Commits (Lead Project)" },
+      { value: "25+", label: "Serverless Functions" },
+      { value: "8+", label: "Years as Sole Lead" },
     ],
   },
   experience: [
@@ -25,11 +25,11 @@ const content: SiteContent = {
       startDate: "2017-03",
       periodLabel: "Mar 2017 – Present",
       description:
-        "Internal tool for configuring IoT farm networks, used daily by 20-30 support engineers. 9,000+ farms configured across 28 countries.",
+        "Internal tool for configuring IoT farm networks, used daily by the support engineering team across multiple countries.",
       achievements: [
-        "Built and maintained the entire platform as sole developer (3,000+ commits over 8 years)",
+        "Built and maintained the entire platform as sole developer (1,700+ commits over 8 years)",
         "Reduced farm setup time from days to hours (85% reduction) by replacing manual data entry with guided wizards",
-        "Optimized page load times by 95% (minutes → seconds) by refactoring the permission system",
+        "Optimized critical page load times by 95% (minutes → seconds) by refactoring the permission system",
       ],
     },
     {
@@ -39,7 +39,7 @@ const content: SiteContent = {
       startDate: "2023",
       periodLabel: "2023 – Present",
       description:
-        "Modern replacement for legacy admin system. Serverless architecture with ~25 Lambda functions, React SPA, and CDK infrastructure.",
+        "Modern replacement for legacy admin system. Serverless architecture with multiple Lambda functions, React SPA, and CDK infrastructure.",
       achievements: [
         "Implemented full-stack features (React + Node.js Lambda + CDK): node management, firmware updates, configuration, and data recovery",
         "Built complete i18n system (en/es) and sensor type endpoints with proactive caching",

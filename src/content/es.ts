@@ -12,9 +12,9 @@ const content: SiteContent = {
     },
     stats: [
       { value: "10+", label: "Años en la Industria" },
-      { value: "3.000+", label: "Commits (Proyecto Lead)" },
-      { value: "9.000+", label: "Campos IoT Configurados" },
-      { value: "28", label: "Países Atendidos" },
+      { value: "1.700+", label: "Commits (Proyecto Lead)" },
+      { value: "25+", label: "Funciones Serverless" },
+      { value: "8+", label: "Años como Único Lead" },
     ],
   },
   experience: [
@@ -25,11 +25,11 @@ const content: SiteContent = {
       startDate: "2017-03",
       periodLabel: "Mar 2017 – Presente",
       description:
-        "Herramienta interna para configurar redes IoT de campos, usada diariamente por 20-30 ingenieros de soporte. 9.000+ campos configurados en 28 países.",
+        "Herramienta interna para configurar redes IoT de campos, usada diariamente por el equipo de ingeniería de soporte en múltiples países.",
       achievements: [
-        "Construí y mantengo toda la plataforma como único desarrollador (3.000+ commits en 8 años)",
+        "Construí y mantengo toda la plataforma como único desarrollador (1.700+ commits en 8 años)",
         "Reduje el tiempo de configuración de campos de días a horas (85% de reducción) reemplazando ingreso manual con wizards guiados",
-        "Optimicé tiempos de carga en 95% (minutos → segundos) refactorizando el sistema de permisos",
+        "Optimicé tiempos de carga críticos en 95% (minutos → segundos) refactorizando el sistema de permisos",
       ],
     },
     {
@@ -39,7 +39,7 @@ const content: SiteContent = {
       startDate: "2023",
       periodLabel: "2023 – Presente",
       description:
-        "Reemplazo moderno del sistema admin legacy. Arquitectura serverless con ~25 funciones Lambda, SPA en React e infraestructura con CDK.",
+        "Reemplazo moderno del sistema admin legacy. Arquitectura serverless con múltiples funciones Lambda, SPA en React e infraestructura con CDK.",
       achievements: [
         "Implementé features full-stack (React + Node.js Lambda + CDK): gestión de nodos, firmware, configuración y recovery de datos",
         "Construí sistema de internacionalización completo (en/es) y endpoints de sensores con caché proactivo",
