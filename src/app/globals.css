@@ -20,11 +20,20 @@
   scroll-margin-top: 5rem;
 }
 
+html {
+  background-color: var(--color-bg);
+}
+
 body {
   font-family: var(--font-body), system-ui, sans-serif;
   background-color: var(--color-bg);
   color: var(--color-ink);
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 h1,

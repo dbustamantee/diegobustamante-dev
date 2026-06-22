@@ -23,7 +23,8 @@ export function Header() {
   const toggleTheme = useThemeToggle();
 
   function switchLocale(locale: "en" | "es") {
-    router.replace(pathname + window.location.hash, { locale });
+    setMobileOpen(false);
+    router.replace(pathname + window.location.hash, { locale, scroll: false });
   }
 
   return (
@@ -56,6 +57,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           {/* Theme toggle */}
           <button
+            type="button"
             onClick={toggleTheme}
             className="flex h-10 w-10 items-center justify-center rounded-lg text-ink-muted transition-colors hover:bg-border"
             aria-label="Toggle theme"
@@ -69,6 +71,7 @@ export function Header() {
           {/* Language switcher */}
           <div className="flex items-center gap-1 text-sm">
             <button
+              type="button"
               onClick={() => switchLocale("en")}
               className="rounded px-2 py-1 text-ink-muted transition-colors hover:bg-border hover:text-ink"
             >
@@ -76,6 +79,7 @@ export function Header() {
             </button>
             <span className="text-ink-subtle">/</span>
             <button
+              type="button"
               onClick={() => switchLocale("es")}
               className="rounded px-2 py-1 text-ink-muted transition-colors hover:bg-border hover:text-ink"
             >
@@ -85,6 +89,7 @@ export function Header() {
 
           {/* Mobile hamburger */}
           <button
+            type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
             className="flex h-10 w-10 items-center justify-center rounded-lg text-ink-muted transition-colors hover:bg-border md:hidden"
             aria-expanded={mobileOpen}
